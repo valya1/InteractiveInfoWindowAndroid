@@ -169,7 +169,7 @@ public class InfoWindowManager
         if (oldFragment != null) {
             fragmentManager.beginTransaction()
                     .remove(oldFragment)
-                    .commitNow();
+                    .commitNowAllowingStateLoss();
         }
 
     }
@@ -572,13 +572,13 @@ public class InfoWindowManager
     private void addFragment(@NonNull final Fragment fragment, @NonNull final View container) {
         fragmentManager.beginTransaction()
                 .replace(container.getId(), fragment, FRAGMENT_TAG_INFO)
-                .commitNow();
+                .commitNowAllowingStateLoss();
     }
 
     private void removeWindowFragment(final Fragment windowFragment) {
         fragmentManager.beginTransaction()
                 .remove(windowFragment)
-                .commitNow();
+                .commitNowAllowingStateLoss();
     }
 
     /**
